@@ -2,7 +2,13 @@ This is an implementation of [GCRA](https://en.wikipedia.org/wiki/Generic_cell_r
 
 The code requires Redis version 3.2 or newer since it relies on [replicate_commands](https://redis.io/commands/eval/#replicating-commands-instead-of-scripts) feature.
 
-### How to use it?
+### How to Install?
+
+```shell
+pip install pyredis_rate_limiter
+```
+
+### How to Use?
 
 Here is a short example.
 ```python
@@ -12,6 +18,11 @@ from typing import Optional
 
 import redis as aio_redis
 from loguru import logger as loguru_logger
+from pyredis_rate_limiter import (
+    Limit,
+    Limiter,
+    per_second
+)
 
 _rl_instance: Optional[Limiter] = None
 
@@ -41,4 +52,12 @@ async def take_token(key: str, limit: Limit, block_wait: bool = False) -> Option
     else:
         token = 1
     return token
+
+
+async def send_sm():
+    token = await take_token(key="send_sm_handler", limit=per_second(5))
+    if token is None:
+        # do sth
+    else:
+        # do sth
 ```
