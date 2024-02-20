@@ -21,7 +21,7 @@ class RedisGCRATestCase(unittest.IsolatedAsyncioTestCase):
         })
         connected = await self.redis_client.is_connected()
         if connected:
-            print("Redis connection established.")
+            print("\nRedis connection established.")
             self.rl = Limiter(redis_conn=self.redis_client.get_connection(), async_mode=False)
         else:
             print("Redis connection failed.")

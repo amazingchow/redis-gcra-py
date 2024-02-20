@@ -17,3 +17,7 @@ lint: ### Lint the source code.
 	@pyflakes ${SRC}
 	@echo "Running code style check..."
 	@pycodestyle ${SRC} --ignore=W293,E121,E125,E402,E501
+
+test: ### Run the test suite.
+	@echo "Running tests..."
+	@python -m unittest discover -s tests
