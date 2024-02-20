@@ -74,7 +74,7 @@ async def send_sm():
 
 setup(
     name='pyredis_rate_limiter',
-    version='1.0.0',
+    version='1.0.1',
     description='A Redis-backed rate limiting based on GCRA implementation in Python',
     long_description=README,
     long_description_content_type='text/markdown',
