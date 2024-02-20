@@ -14,7 +14,7 @@ The code requires Redis version 3.2 or newer since it relies on [replicate_comma
 ### How to Install?
 
 ```shell
-pip install pyredis_rate_limiter
+pip install pyredis-rate-limiter
 ```
 
 ### How to Use?
